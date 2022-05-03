@@ -1,0 +1,13 @@
+.p-4.border-b.border-blue-200.shadow.rounded-lg
+      table#datatable.px-1.table-fixed.py-4 data-teacher-target="table"
+        thead.bg-blue-400
+          tr
+            th
+              |  Name 
+            th
+              |  School 
+            th
+              |  Established year 
+        tbody.bg-white
+          - @teachers.each do |teacher|  
+              == render teacher
