@@ -1,0 +1,33 @@
+<%= turbo_frame_tag "teacher_details", class: "rounded border-b border-gray-200" do %>
+  <table class="min-w-full bg-white border border-blue-300">
+    <thead class="bg-blue-800 text-white">
+      <tr>
+        <th id="teacher-details-name" class="text-left py-3 px-6 uppercase font-semibold text-sm hover:cursor-pointer relative">
+          <%= sort_indicator if session.dig('teacher_detail_filters', 'column') == "name" %>
+          <%= build_order_link(column: "name", label: "Teacher") %>
+        </th>
+        <th id="teacher-details-team" class="text-left py-3 px-6 uppercase font-semibold text-sm hover:cursor-pointer relative">
+          <%= sort_indicator if session.dig('teacher_detail_filters', 'column') == "school_name" %>
+          <%= build_order_link(column: "school_name", label: "School") %>
+        </th>
+        <th id="teacher-details-school-year" class="text-left py-3 px-6 uppercase font-semibold text-sm hover:cursor-pointer relative">
+          <%= sort_indicator if session.dig('teacher_detail_filters', 'column') == "school_year" %>
+          <%= build_order_link(column: "school_year", label: "school Year") %>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody class="text-gray-700">
+      <% teacher_details.each do |teacher_detail| %>
+        <tr>
+          <td class="text-left py-3 px-6 bg-gray-200 border-b border-r border-blue-300"><%= teacher_detail.name %></td>
+          <td class="text-left py-3 px-6 bg-gray-200 border-b border-r border-blue-300"><%= teacher_detail.school_name %></td>
+          <td class="text-left py-3 px-6 bg-gray-200 border-b border-r border-blue-300"><%= teacher_detail.school_year %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="flex justify-end mt-1">
+    <%== pagy_nav(pagy) %>
+  </div>
+<% end %>

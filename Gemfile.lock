@@ -123,6 +123,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.4-x86_64-linux)
       racc (~> 1.4)
+    pagy (5.10.1)
+      activesupport
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -206,6 +208,7 @@ DEPENDENCIES
   faker!
   importmap-rails
   mysql2 (~> 0.5)
+  pagy (~> 5.10)
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.4)
   redis (~> 4.0)

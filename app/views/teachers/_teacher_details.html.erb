@@ -1,0 +1,11 @@
+<div class="flex flex-col justify-around mb-4">
+  <%= form_with url: list_teachers_path, method: :get, data: { controller: "search-form", search_form_target: "form", turbo_frame: "teacher_details" } do |form| %>
+    <%= form.text_field :q,
+      placeholder: "Search",
+      class: "border border-blue-500 rounded p-2 float-right",
+      autocomplete: "off",
+      data: { action: "input->search-form#search" }
+    %>
+  <% end %>
+  <%= render "table", teacher_details: @teacher_details, pagy: @pagy %>
+</div>
